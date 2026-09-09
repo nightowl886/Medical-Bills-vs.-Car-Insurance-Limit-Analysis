@@ -4,11 +4,11 @@
 This project explores how medical expenses from accident-related treatments are allocated between car insurance and health insurance. Using SQL for data aggregation and Tableau for visualization, the analysis demonstrates how insurance limits affect cost distribution.
 
 ## Data Cleaning Step: Standardizing Department Names
-- Identified inconsistencies in the DEPARTMENT column of the admission dataset (values like ‘Emergency’ and misspelled ‘Emergancy’).
+- Detected inconsistencies in the DEPARTMENT column of the admission dataset (e.g., Emergency vs. misspelled Emergancy).
 
-- Standardized department names in the admission dataset by using Excel’s case‑insensitive Find & Replace to unify all variations (Emergency, Emergancy) into a single label: ER.
+- Standardized values by applying Excel’s case‑insensitive Find & Replace to unify all variations into a single label: ER.
 
-- Simplified SQL queries (e.g., WHERE DEPARTMENT = 'ER') without handling multiple spellings.
+- Enabled cleaner analysis by ensuring SQL queries and Tableau visualizations reference one consistent department category.
 
 ## 🛠️ Methodology
 - SQL Queries:
