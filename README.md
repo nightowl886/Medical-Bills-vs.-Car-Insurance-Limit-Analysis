@@ -1,7 +1,6 @@
 # Medical-Bills-vs.-Car-Insurance-Limit-Analysis
 
-## Medical Bills vs. Car Insurance Limit Analysis
-📌 Overview
+## 📌 Overview
 This project explores how medical expenses from accident-related treatments are allocated between car insurance and health insurance. Using SQL for data aggregation and Tableau for visualization, the analysis demonstrates how insurance limits affect cost distribution.
 
 ## 🛠️ Methodology
