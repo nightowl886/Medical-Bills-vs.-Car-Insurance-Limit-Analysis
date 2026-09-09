@@ -17,21 +17,8 @@ This project explores how medical expenses from accident-related treatments are 
 
   - DEPARTMENT = 'ER' (Emergency Room visits), and
 
-- icd_code starts with S (injury-related ICD‑10 codes).
+  - icd_code starts with S (injury-related ICD‑10 codes).
 
-- Applied SQL filtering:
-
-sql
-SELECT d.diagnosis_id,
-       d.admission_id,
-       d.icd_code,
-       d.diagnosis,
-       a.department
-FROM medical_bills.diagnosis d
-LEFT JOIN medical_bills.admissions a
-       ON a.admission_id = d.admission_id
-WHERE a.department = 'ER'
-  AND d.icd_code LIKE 'S%';
 - Standardized department values: Prior cleaning ensured all variations of Emergency/Emergancy were unified into ER, preventing misclassification.
 
 - Result: The query isolates ER admissions with injury codes, representing cases most likely linked to accidents.
