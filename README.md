@@ -11,9 +11,9 @@ Apply logic to determine which expenses fall within the car insurance coverage l
 
 - Business Logic:
 
-- If total accident-related costs ≤ $10,000 → covered by car insurance.
+  - If total accident-related costs ≤ $10,000 → covered by car insurance.
 
-- If costs exceed $10,000 → remaining balance shifts to health insurance.
+  - If costs exceed $10,000 → remaining balance shifts to health insurance.
 
 ##📊 Tableau Visualizations
 - Stacked Bar Chart: Shows the proportion of costs by category (ER, CT, Physician, Medication).
