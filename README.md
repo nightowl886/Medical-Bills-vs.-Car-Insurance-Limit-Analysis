@@ -15,7 +15,7 @@ Apply logic to determine which expenses fall within the car insurance coverage l
 
   - If costs exceed $10,000 → remaining balance shifts to health insurance.
 
-##📊 Tableau Visualizations
+## 📊 Tableau Visualizations
 - Stacked Bar Chart: Shows the proportion of costs by category (ER, CT, Physician, Medication).
 
 - Pie Chart: Illustrates the split between car insurance and health insurance coverage.
