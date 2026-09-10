@@ -11,7 +11,7 @@ This project explores how medical expenses from accident-related treatments are 
 
 - Enabled cleaner analysis by ensuring SQL queries and Tableau visualizations reference one consistent department category.
 
-### 🧹 Department Column Standardization
+### 🧹 Department Column Standardization (Using SQL)
 - Uppercase normalization: Converted all department names to uppercase to avoid duplicates such as Onco, oncology, and ONCOLOGY being treated as separate categories.
 
 - Spelling corrections: Fixed common typos, e.g., Cardiolgy → CARDIOLOGY, Oncologyy → ONCOLOGY, ensuring consistent and professional labeling.
