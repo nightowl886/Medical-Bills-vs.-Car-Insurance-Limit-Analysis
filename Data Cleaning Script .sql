@@ -24,3 +24,34 @@ UPDATE medical_bills.diagnosis
 SET severity = UPPER(TRIM(severity));
 
 -----------------------------------
+
+UPDATE medical_bills.admissions
+SET department = 'ONCOLOGY'
+WHERE department IN ('Onco', 'ONCOLOGY', 'Oncologyy', 'Oncology','oncology');
+
+UPDATE medical_bills.admissions
+SET department = 'GENERAL SURGERY'
+WHERE department IN ('Gen Surg', 'General Surgery', 'GeneralSurgery','general surgery','GENERAL SURGERY');
+
+UPDATE medical_bills.admissions
+SET department = 'CARDIOLOGY'
+WHERE department IN ('Cardio', 'CARDIOLOGY','Cardiolgy','cardiology','Cardiology');
+
+
+UPDATE medical_bills.admissions
+SET department = 'NERUOLOGY'
+WHERE department IN ('Neurology', 'Neuro','NERUOLOGY','neurology','Nuerology');
+
+UPDATE medical_bills.admissions
+SET department = 'ORTHOPEDICS'
+WHERE department IN ('orthopedics', 'Ortho','ORTHO','Orthopedics','ORTHOPEDICS');
+
+
+UPDATE medical_bills.admissions
+SET department = 'PEDIATRICS'
+WHERE department IN ('Paediatrics', 'Pediatrics','pediatrics','PEDIATRICS','Peds');
+
+UPDATE medical_bills.admissions
+SET department = 'ORTHOPEDICS'
+WHERE department IN ('Orthopaedics', 'ORTHOPEDICS');
+
