@@ -22,18 +22,27 @@ This project explores how medical expenses from accident-related treatments are 
 
 ## 🛠️ Methodology
 
-### 🚗 Identifying Car‑Accident–Related Cases Using ICD‑10 S‑Codes (Expanded Logic)
-- Injury‑based detection: Records were classified as accident‑related if any ICD‑10 code within the diagnosis string begins with “S”, which corresponds to traumatic injuries (fractures, contusions, lacerations, internal injuries, etc.).
+### 🚗 Identifying Car‑Accident–Related Cases Using ICD‑10 S‑Codes (Expanded & Realistic Logic)
+- Initial assumption: ER + S‑codes:
+  The first version of the analysis filtered cases where patients were admitted through the ER and had ICD‑10 codes starting with “S”, representing traumatic injuries. This was used as an initial proxy for car‑accident‑related encounters.
 
-- Multi‑code parsing: Many admissions contain multiple ICD‑10 codes stored as comma‑separated values (e.g., I10,S72.001A). Each code was parsed individually to ensure that S‑codes appearing in second or later positions were also correctly identified.
+- Real‑world correction:
+  In practice, car‑accident patients do not always enter through the ER. Some may be transferred directly to departments such as ORTHOPEDICS, NEUROLOGY, or GENERAL SURGERY depending on injury type, hospital workflow, or delayed presentation.
 
-- Inclusive trauma logic: The filtering logic does not rely solely on the first diagnosis code. Any presence of an S‑code—whether primary or secondary—was treated as a valid indicator of trauma potentially caused by motor‑vehicle accidents.
+- Expanded trauma logic:
+  To capture these cases, the filtering logic was expanded to include any admission where any ICD‑10 code (primary or secondary) begins with “S”, even if the patient was not admitted through ER.
 
-- Coverage assignment: Admissions containing at least one S‑code were labeled as CARINSURANCE, while all others were labeled as HEALTHINSURANCE, enabling downstream comparisons between accident‑related and non‑accident cases.
+- Multi‑code parsing:
+  Many diagnosis fields contain multiple comma‑separated ICD‑10 codes. Each code was parsed individually to ensure that secondary S‑codes (e.g., I10,S72.001A) were correctly identified as trauma‑related.
 
-- Data quality safeguards: Additional filters were applied to remove records with inconsistent timestamps (e.g., discharge date earlier than admission date), ensuring that only valid encounters were included in the analysis.
+- Coverage classification:
+  Admissions containing at least one S‑code were labeled as CARINSURANCE, while all others were labeled as HEALTHINSURANCE, enabling downstream comparisons between accident‑related and non‑accident cases.
 
-- Limitations acknowledged: S‑codes capture trauma but do not explicitly encode accident type. Some motor‑vehicle accidents may instead use V‑codes (external cause codes). This project focuses on S‑codes as a practical and widely used proxy for accident‑related injuries within the dataset.
+- Data quality safeguards:
+  Records with invalid timestamps (e.g., discharge date earlier than admission date) were removed to ensure analytical reliability.
+
+- Limitations acknowledged:
+  S‑codes indicate trauma but do not explicitly encode accident type. Some motor‑vehicle accidents may instead use V‑codes (external cause codes). This project focuses on S‑codes as a practical and dataset‑appropriate proxy for accident‑related injuries.
 ----
 
 Aggregate itemized bills by category (Emergency Room, CT scans, Physician fees, Medications).
