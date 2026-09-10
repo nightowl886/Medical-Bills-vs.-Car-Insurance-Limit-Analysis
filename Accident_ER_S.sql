@@ -1,3 +1,5 @@
+--ICD‑10 Code Standardization Process
+
 -- Step 1 
 --– Trim and uppercase: Remove leading/trailing spaces and convert all ICD‑10 codes to uppercase.
 
@@ -23,3 +25,4 @@ UPDATE medical_bills.diagnosis
 SET icd_code = REPLACE(icd_code, ', ', ',');
 
 ----
+
