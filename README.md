@@ -14,7 +14,7 @@ This project explores how medical expenses from accident-related treatments are 
 ### 2. Department Column Standardization (Using SQL)
 - Uppercase normalization: Converted all department names to uppercase to avoid duplicates such as Onco, oncology, and ONCOLOGY being treated as separate categories.
 
-- Spelling corrections: Fixed common typos, e.g., Cardiolgy → CARDIOLOGY, Oncologyy → ONCOLOGY, ensuring consistent and professional labeling.
+- Spelling corrections: Fixed common typos, e.g., Cardiolgy → CARDIOLOGY, Peds → PEDIATRICS, ensuring consistent and professional labeling.
 
 - Industry-standard abbreviations: Retained ER (Emergency Room) as a recognized abbreviation, while other departments were standardized to full names.
 
