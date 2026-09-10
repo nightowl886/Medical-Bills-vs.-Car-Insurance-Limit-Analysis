@@ -21,20 +21,20 @@ This project explores how medical expenses from accident-related treatments are 
 - Improved analytical accuracy: Standardization ensures clear ER vs Non-ER comparisons and prevents distorted ratios caused by inconsistent naming.
 
 ## 🛠️ Methodology
-### SQL Queries:
-🚑 Accident-related Case Identification
-- Defined criteria: Accident-related cases are identified as admissions where
 
-  - DEPARTMENT = 'ER' (Emergency Room visits), and
+### 🚗 Identifying Car‑Accident–Related Cases Using ICD‑10 S‑Codes (Expanded Logic)
+- Injury‑based detection: Records were classified as accident‑related if any ICD‑10 code within the diagnosis string begins with “S”, which corresponds to traumatic injuries (fractures, contusions, lacerations, internal injuries, etc.).
 
-  - icd_code starts with S (injury-related ICD‑10 codes).
+- Multi‑code parsing: Many admissions contain multiple ICD‑10 codes stored as comma‑separated values (e.g., I10,S72.001A). Each code was parsed individually to ensure that S‑codes appearing in second or later positions were also correctly identified.
 
-- Standardized department values: Prior cleaning ensured all variations of Emergency/Emergancy were unified into ER, preventing misclassification.
+- Inclusive trauma logic: The filtering logic does not rely solely on the first diagnosis code. Any presence of an S‑code—whether primary or secondary—was treated as a valid indicator of trauma potentially caused by motor‑vehicle accidents.
 
-- Result: The query isolates ER admissions with injury codes, representing cases most likely linked to accidents.
+- Coverage assignment: Admissions containing at least one S‑code were labeled as CARINSURANCE, while all others were labeled as HEALTHINSURANCE, enabling downstream comparisons between accident‑related and non‑accident cases.
 
-- Impact on analysis: Enables accurate separation of CarInsurance vs HealthInsurance coverage in subsequent cost aggregation and Tableau visualization.
+- Data quality safeguards: Additional filters were applied to remove records with inconsistent timestamps (e.g., discharge date earlier than admission date), ensuring that only valid encounters were included in the analysis.
 
+- Limitations acknowledged: S‑codes capture trauma but do not explicitly encode accident type. Some motor‑vehicle accidents may instead use V‑codes (external cause codes). This project focuses on S‑codes as a practical and widely used proxy for accident‑related injuries within the dataset.
+----
 
 Aggregate itemized bills by category (Emergency Room, CT scans, Physician fees, Medications).
 Apply logic to determine which expenses fall within the car insurance coverage limit (e.g., $10,000) and which exceed the threshold, requiring health insurance coverage.
