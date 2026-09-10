@@ -25,7 +25,8 @@ SET icd_code = REPLACE(icd_code, ', ', ',');
 
 -----------------------------------
 
-
+-- Trim and uppercase
+  
 UPDATE diagnosis
 SET severity = UPPER(TRIM(severity));
 
