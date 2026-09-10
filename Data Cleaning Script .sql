@@ -1,5 +1,4 @@
 --ICD‑10 Code Standardization Process
------------------------------------
 -- Step 1 
 --– Trim and uppercase: Remove leading/trailing spaces and convert all ICD‑10 codes to uppercase.
 
