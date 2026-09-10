@@ -1,5 +1,5 @@
 --ICD‑10 Code Standardization Process
-
+-----------------------------------
 -- Step 1 
 --– Trim and uppercase: Remove leading/trailing spaces and convert all ICD‑10 codes to uppercase.
 
@@ -24,5 +24,5 @@ SET icd_code = REGEXP_REPLACE(icd_code, '^(C[0-9]{2})([0-9]{3})$', '\1.\2');
 UPDATE medical_bills.diagnosis
 SET icd_code = REPLACE(icd_code, ', ', ',');
 
-----
+-----------------------------------
 
