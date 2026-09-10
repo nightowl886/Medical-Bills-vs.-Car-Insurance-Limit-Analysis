@@ -5,6 +5,7 @@ SELECT d.diagnosis_id,
 	   a.patient_id,
 	   a.admission_date,
 	   a.discharge_date,
+	   a.department,
 	   CASE 
          WHEN d.icd_code LIKE 'S%' or d.icd_code LIKE '%,S%' THEN 'CARINSURANCE'
          ELSE 'HEALTHINSURANCE'
@@ -13,4 +14,4 @@ SELECT d.diagnosis_id,
 FROM medical_bills.diagnosis d
 left JOIN medical_bills.admissions a
   ON a.admission_id = d.admission_id
-where a.department = 'ER' and d.icd_code like 'S%' or d.icd_code LIKE '%,S%' ; 
+where a.department = 'ER' and (d.icd_code like 'S%' or d.icd_code LIKE '%,S%') ; 
